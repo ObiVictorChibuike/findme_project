@@ -14,6 +14,7 @@ class AppTheme {
   static const Color darkerText = Color(0xFF17262A);
   static const Color black = Color(0xFF17262A);
   static const Color lightText = Color(0xFF4A6572);
+  static const Color red = Color(0xFFF80404);
 //App Font
   //static const String fontName = 'Poppins';
 

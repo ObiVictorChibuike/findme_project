@@ -7,13 +7,15 @@ class CustomButton extends StatelessWidget {
   final String? buttonText;
   final double? buttonRadius;
   final double? buttonHeight;
-  const CustomButton({Key? key, this.decorationColor, this.borderColor, this.textColor, @required this.onPressed, this.buttonText, this.buttonRadius, this.buttonHeight}) : super(key: key);
+  final double? buttonWidth;
+  final double? textFontSize;
+  const CustomButton({Key? key, this.decorationColor, this.borderColor, this.textColor, @required this.onPressed, this.buttonText, this.buttonRadius, this.buttonHeight, this.buttonWidth, this.textFontSize}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       height: buttonHeight ?? 48,
-      width: double.maxFinite,
+      width:  buttonWidth ?? double.maxFinite,
       decoration: BoxDecoration(
           color: decorationColor ?? AppTheme.white,
           borderRadius: BorderRadius.all(Radius.circular(buttonRadius ?? 24.0)),
@@ -31,7 +33,14 @@ class CustomButton extends StatelessWidget {
               child: Text(
                   buttonText?? '',
                   textAlign: TextAlign.left,
-                  style: AppTheme.buttonTextStyle
+                  style: TextStyle(
+                    fontFamily: 'Poppins',
+                    fontWeight: FontWeight.w400,
+                    fontSize: textFontSize ?? 15,
+                    letterSpacing: 0.4,
+                    height: 0.9,
+                    color: textColor ?? AppTheme.white,
+                  ),
               ),
             ),
           ),

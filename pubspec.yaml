@@ -23,6 +23,17 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  pin_code_fields: ^7.3.0
+  flutter_native_splash: ^1.2.3
+
+
+flutter_native_splash:
+  image: assets/welcome.png
+  color: "#ffffff"
+  android: true
+  ios: true
+  android_gravity: fill
+  android12: true
 
 
   # The following adds the Cupertino Icons font to your application.

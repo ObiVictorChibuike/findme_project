@@ -111,7 +111,7 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
                 padding: const EdgeInsets.symmetric(horizontal: 28.0),
                 child: CustomButton(
                   decorationColor: AppTheme.blue,
-                    buttonHeight: 45,
+                    buttonHeight: 48,
                     borderColor: AppTheme.blue,
                     buttonRadius: 10,
                     buttonText: ('Login'),

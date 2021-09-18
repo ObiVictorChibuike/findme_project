@@ -78,7 +78,7 @@ class _CreateAccountState extends State<CreateAccount> {
                   Text('Password', style:  AppTheme.greyBoldTextStyle,),
                   SizedBox(height: 10),
                   CustomPasswordFormField(
-                      labelText: 'Password',
+                      labelText: 'Enter Password',
                       cursorColor: AppTheme.blue,
                       focusedBorderColor: AppTheme.blue,
                       enabledBorderColor: AppTheme.blue,
@@ -89,7 +89,7 @@ class _CreateAccountState extends State<CreateAccount> {
                   SizedBox(height: 40,),
                   CustomButton(
                       decorationColor: AppTheme.blue,
-                      buttonHeight: 45,
+                      buttonHeight: 48,
                       borderColor: AppTheme.blue,
                       buttonRadius: 10,
                       buttonText: ('Create Account'),
@@ -165,7 +165,9 @@ class _CreateAccountState extends State<CreateAccount> {
                           fontWeight: FontWeight.w400, fontSize: 15, fontFamily: 'Poppins', color: AppTheme.blue
                         )),
                         InkWell(
-                          onTap: (){},
+                          onTap: (){
+                            Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=>LoginScreen()));
+                          },
                           child: Text('Login', style: TextStyle(
                               fontWeight: FontWeight.w600, fontSize: 16, fontFamily: 'Poppins', color: AppTheme.blue, decoration: TextDecoration.underline
                           )),
