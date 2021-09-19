@@ -4,7 +4,7 @@ class AppTheme {
   AppTheme._();
 //App Colors
   static const Color notWhite = Color(0xFFEDF0F2);
-  static const Color nearlyWhite = Color(0xFFFEFEFE);
+  static const Color nearlyWhite = Color(0xFFF5F5F5);
   static const Color white = Color(0xFFFFFFFF);
   static const Color nearlyBlack = Color(0xFF213333);
   static const Color grey = Color(0xFF3A5160);
@@ -20,67 +20,67 @@ class AppTheme {
 
 //App TextStyles
   static const TextStyle headerTextStyle = TextStyle(
-    fontFamily: 'Poppins',
-    fontWeight: FontWeight.w600,
+    fontFamily: 'Mulish',
+    fontWeight: FontWeight.w700,
     fontSize: 28,
-    letterSpacing: 0.4,
+    letterSpacing: 0.5,
     height: 0.9,
     color: blue,
   );
   static const TextStyle blackTextStyle = TextStyle(
-    fontFamily: 'Poppins',
+    fontFamily: 'Mulish',
     fontWeight: FontWeight.w400,
     fontSize: 15,
-    letterSpacing: 0.4,
+    letterSpacing: 0.5,
     height: 0.9,
     color: darkerText,
   );
   static const TextStyle whiteTextStyle = TextStyle(
-    fontFamily: 'Poppins',
+    fontFamily: 'Mulish',
     fontWeight: FontWeight.w400,
     fontSize: 30,
-    letterSpacing: 0.4,
+    letterSpacing: 0.5,
     height: 0.9,
     color: notWhite,
   );
   static const TextStyle whiteHeaderTextStyle = TextStyle(
-    fontFamily: 'Poppins',
+    fontFamily: 'Mulish',
     fontWeight: FontWeight.w700,
     fontSize: 30,
-    letterSpacing: 0.4,
+    letterSpacing: 0.5,
     height: 0.9,
     color: notWhite,
   );
   static const TextStyle greyTextStyle = TextStyle(
-    fontFamily: 'Poppins',
+    fontFamily: 'Mulish',
     fontWeight: FontWeight.w400,
     fontSize: 15,
-    letterSpacing: 0.7,
+    letterSpacing: 0.5,
     height: 0.9,
     color: grey,
   );
   static const TextStyle greyBoldTextStyle = TextStyle(
-    fontFamily: 'Poppins',
+    fontFamily: 'Mulish',
     fontWeight: FontWeight.w800,
     fontSize: 15,
-    letterSpacing: 0.7,
+    letterSpacing: 0.5,
     height: 0.9,
     color: grey,
   );
   static const TextStyle buttonTextStyle = TextStyle(
-    fontFamily: 'Poppins',
+    fontFamily: 'Mulish',
     fontWeight: FontWeight.w400,
     fontSize: 15,
-    letterSpacing: 0.4,
+    letterSpacing: 0.5,
     height: 0.9,
     color: white,
   );
 
   static const TextStyle title = TextStyle(
-    fontFamily: 'Poppins',
-    fontWeight: FontWeight.bold,
+    fontFamily: 'Mulish',
+    fontWeight: FontWeight.w400,
     fontSize: 25,
-    letterSpacing: 0.4,
+    letterSpacing: 0.5,
     height: 0.9,
     color: darkerText,
   );

@@ -17,6 +17,5 @@ class CategoryImages{
     CategoryImages(
         images: 'assets/image4.png'
     ),
-
   ];
 }

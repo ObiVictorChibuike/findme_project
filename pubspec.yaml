@@ -25,6 +25,7 @@ dependencies:
     sdk: flutter
   pin_code_fields: ^7.3.0
   flutter_native_splash: ^1.2.3
+  introduction_screen: ^2.1.0
 
 
 flutter_native_splash:
@@ -78,6 +79,9 @@ flutter:
     - family: PermanentMarker
       fonts:
         - asset: fonts/PermanentMarker-Regular.ttf
+    - family: Mulish
+      fonts:
+        - asset: fonts/Mulish-Regular.ttf
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
