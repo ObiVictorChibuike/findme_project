@@ -37,8 +37,6 @@ class _LoginScreenState extends State<LoginScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SizedBox(height: 30),
-        Text('Email', style:  AppTheme.greyBoldTextStyle,),
-        SizedBox(height: 10),
         CustomFormField(
             textColor: AppTheme.grey,
             labelText: 'Amyparker007@gmail.com',
@@ -46,8 +44,6 @@ class _LoginScreenState extends State<LoginScreen> {
             }
         ),
         SizedBox(height: 25,),
-        Text('Password', style:  AppTheme.greyBoldTextStyle,),
-        SizedBox(height: 10),
         CustomPasswordFormField(
             labelText: 'Enter Password',
             cursorColor: AppTheme.blue,
@@ -132,7 +128,7 @@ class _LoginScreenState extends State<LoginScreen> {
               isLoginWithPhoneNumber ? loginWithEmailAndPassword(context) : loginWithPhoneNumber(context),
               CustomButton(
               decorationColor: AppTheme.blue,
-              buttonHeight: 48,
+              buttonHeight: 55,
               borderColor: AppTheme.blue,
               buttonRadius: 10,
               buttonText: ('Login'),
@@ -141,7 +137,7 @@ class _LoginScreenState extends State<LoginScreen> {
               }
           ),
           SizedBox(
-            height: 10,
+            height: 150,
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),

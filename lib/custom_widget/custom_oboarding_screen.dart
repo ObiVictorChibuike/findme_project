@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:find_me_flutter_app/constants/color_palettes.dart';
 import 'package:find_me_flutter_app/screens/getstarted.dart';
 import 'package:flutter/material.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 
 class CustomOnboardingScreen extends StatefulWidget {
@@ -60,7 +61,7 @@ class _CustomOnboardingScreenState extends State<CustomOnboardingScreen> {
               itemBuilder: (ctx, i) => OnboardingWidgets(i),
             ),
             Padding(
-              padding: const EdgeInsets.only(bottom: 90.0),
+              padding: const EdgeInsets.only(bottom: 40.0),
               child: Align(
                 alignment: AlignmentDirectional.bottomCenter,
                 child:
@@ -70,24 +71,46 @@ class _CustomOnboardingScreenState extends State<CustomOnboardingScreen> {
                     mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: <Widget>[
-                      for(int i = 0; i < slideList.length; i++)
-                        if(i == _currentPage)
-                          SlideDots(isActive: true,)
-                        else
-                          SlideDots(isActive: false,),
-                      SizedBox(width: 30,),
+                      _currentPage == slideList.length - 1?
                       Container(
+                        height: MediaQuery.of(context).size.height / 12,
+                        width: MediaQuery.of(context).size.width / 5.1,
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(30),
-                          color: Colors.blue
+                          color: AppTheme.lightBlue.withOpacity(0.5),
+                          borderRadius: BorderRadius.circular(40),
                         ),
-                        child: IconButton(
-                          icon: Icon(Icons.arrow_forward,size: 30, color: AppTheme.white,),
-                          onPressed: (){
-                            Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=>GetStartedScreen()));
-                          },
+                        child: Center(
+                          child: Container(
+                            height: MediaQuery.of(context).size.height / 16,
+                            width: MediaQuery.of(context).size.width / 7,
+                            decoration: BoxDecoration(
+                              color: AppTheme.lightBlue,
+                              borderRadius: BorderRadius.circular(30),
+                            ),
+                            child: IconButton(
+                                onPressed: (){
+                                  Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=>GetStartedScreen()));
+                                },
+                                icon: Icon(
+                                  Icons.arrow_forward, size: 30, color: AppTheme.white,
+                                )
+                            ),
+                          ),
                         ),
-                      ),
+                      ) :
+                      SmoothPageIndicator(
+                          controller: _pageController,
+                          count: slideList.length,
+                          effect: ScrollingDotsEffect(
+                            activeDotColor: AppTheme.lightBlue,
+                            activeStrokeWidth: 2.6,
+                            activeDotScale: 1.4,
+                            maxVisibleDots: 5,
+                            radius: 8,
+                            spacing: 5,
+                            dotHeight: 8,
+                            dotWidth: 8,
+                          ))
                     ],
                   ),
                 ),
@@ -136,7 +159,7 @@ class OnboardingWidgets extends StatelessWidget {
                     children: [
                       SizedBox(height: 100,),
                       Image.asset('assets/find_me_logo.png'),
-                      SizedBox(height: 200,),
+                      SizedBox(height: 300,),
                       Text(slideList[index].title!, style: TextStyle(fontWeight: FontWeight.w700, fontFamily: 'Mulish', fontSize: 34, color: AppTheme.white),),
                       SizedBox(height: 20,),
                       Text(slideList[index].subtitle!, style: TextStyle(fontSize: 16,fontFamily: 'Mulish', fontWeight: FontWeight.w400, color: AppTheme.white)),
@@ -184,29 +207,29 @@ final slideList = [
   Slide(
     imageUrl: 'assets/onboarding0.jpg',
     title: 'Starting Point',
-      subtitle: 'The starting point of brand new \n experience of business and service \n categories booking in a customized platform'
+      subtitle: '  The starting point of brand new\nexperience of business and service\ncategories booking in a customized\n                        platform'
   ),
 
   Slide(
     imageUrl: 'assets/onboarding1.jpg',
     title: 'Jobs',
-      subtitle:'Find verified job vacancies, Post \n your CV anywhere in the universe \n and lots more'
+      subtitle:'  Find verified job vacancies, Post\nyour CV anywhere in the universe\n                    and lots more'
   ),
 
   Slide(
     imageUrl: 'assets/onboarding2.jpg',
     title: 'Places',
-      subtitle:'Discover the places in a new \n city and book, order and go there'
+      subtitle:'   Discover the places in a new\ncity and book, order and go there'
   ),
   Slide(
     imageUrl: 'assets/onboarding3.jpg',
     title: 'Artisan & Services',
-      subtitle:'Find the best of artisan and \n services near you and with ratings \n & reviews '
+      subtitle:'      Find the best of artisan and\nservices near you and with ratings\n                       & reviews '
   ),
   Slide(
     imageUrl: 'assets/onboarding4.jpg',
     title: 'Market Place',
-      subtitle:'Go to markets in your city and \n shop from verified market vendors \n anywhere in the world'
+      subtitle:'  Go to markets in your city and\nshop from verified market vendors\n           anywhere in the world'
   ),
 ];
 
