@@ -13,24 +13,6 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  late bool isLoginWithPhoneNumber = true;
-
-  Widget loginWithPhoneNumber(BuildContext context){
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        SizedBox(height: 30),
-        CustomFormField(
-            textColor: AppTheme.grey,
-            labelText: '+234 8034 345 3456',
-            validator: (value){
-
-            }
-        ),
-        SizedBox(height: 100,),
-      ],
-    );
-  }
 
   Widget loginWithEmailAndPassword(BuildContext context){
     return Column(
@@ -39,7 +21,7 @@ class _LoginScreenState extends State<LoginScreen> {
         SizedBox(height: 30),
         CustomFormField(
             textColor: AppTheme.grey,
-            labelText: 'Amyparker007@gmail.com',
+            labelText: 'Enter Email address',
             validator: (value){
             }
         ),
@@ -51,7 +33,7 @@ class _LoginScreenState extends State<LoginScreen> {
 
             }
         ),
-        SizedBox(height: 65,),
+        SizedBox(height: 20,),
             ],
           );
   }
@@ -62,160 +44,142 @@ class _LoginScreenState extends State<LoginScreen> {
         bottom: false,
         child: Scaffold(
           appBar: AppBar(
-            automaticallyImplyLeading: false,
             elevation: 0,
             backgroundColor: Colors.transparent,
             iconTheme: IconThemeData(color: AppTheme.blue),
-            title: Image.asset('assets/findme_logo.png'),
-            centerTitle: true,
           ),
           resizeToAvoidBottomInset: false,
           backgroundColor: AppTheme.nearlyWhite,
-          body: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(height: 20,),
-                Text('Login Account', style:  AppTheme.headerTextStyle,),
-                SizedBox(height: 10,),
-                Text('We are happy to have you back', style:  AppTheme.greyTextStyle,),
-                SizedBox(height: 30,),
-                Container(
-                  height: MediaQuery.of(context).size.height / 16,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    color: AppTheme.grey.withOpacity(0.1),
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                      CustomButton(
-                          onPressed: (){
-                            setState(() {
-                              isLoginWithPhoneNumber = true;
-                            });
-                          },
-                        borderColor: isLoginWithPhoneNumber ? AppTheme.white : Colors.transparent,
-                        decorationColor: isLoginWithPhoneNumber ? AppTheme.white : Colors.transparent,
-                        buttonText: 'Email Address',
-                        textColor: AppTheme.blue,
-                        textFontSize: 13,
-                        buttonHeight: 37,
-                        buttonWidth: MediaQuery.of(context).size.width / 2.45,
+          body: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(height: 30,),
+                    Text('Login Account', style:  AppTheme.headerTextStyle,),
+                    SizedBox(height: 20,),
+                    Text('Fill the form below to login', style:  AppTheme.greyTextStyle,),
+                  loginWithEmailAndPassword(context),
+                  SizedBox(height: 10,),
+                  CustomButton(
+                  decorationColor: AppTheme.blue,
+                  buttonHeight: 55,
+                  borderColor: AppTheme.blue,
+                  buttonRadius: 10,
+                  buttonText: ('Login'),
+                  onPressed: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=>OptVerificationScreen()));
+                  }
+              ),
+                    SizedBox(height: 25,),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 73.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Text('Forgot Password?', style: TextStyle(
+                              fontWeight: FontWeight.w400, fontSize: 15, fontFamily: 'Mulish', color: AppTheme.blue
+                          )),
+                          InkWell(
+                            onTap: (){
+
+                            },
+                            child: Text(' Click here', style: TextStyle(
+                                fontWeight: FontWeight.w600, fontSize: 16, fontFamily: 'Mulish', color: AppTheme.blue,
+                            )),
+                          ),
+                        ],
                       ),
-                        CustomButton(
-                          onPressed: (){
-                            setState(() {
-                              isLoginWithPhoneNumber = false;
-                            });
-                          },
-                          borderColor: isLoginWithPhoneNumber ? Colors.transparent : AppTheme.white,
-                          decorationColor: isLoginWithPhoneNumber ? Colors.transparent : AppTheme.white,
-                          buttonText: 'Phone Number',
-                          textColor: AppTheme.blue,
-                          textFontSize: 13,
-                          buttonHeight: 37,
-                          buttonWidth: MediaQuery.of(context).size.width / 2.45,
-                        ),
-                      ],
                     ),
-                  ),
+                  ],
                 ),
-              isLoginWithPhoneNumber ? loginWithEmailAndPassword(context) : loginWithPhoneNumber(context),
-              CustomButton(
-              decorationColor: AppTheme.blue,
-              buttonHeight: 55,
-              borderColor: AppTheme.blue,
-              buttonRadius: 10,
-              buttonText: ('Login'),
-              onPressed: (){
-                Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=>OptVerificationScreen()));
-              }
-          ),
-          SizedBox(
-            height: 150,
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                Container(
-                  height: 1.5,
-                  width: MediaQuery.of(context).size.width / 2.8,
-                  color: AppTheme.blue.withOpacity(0.6),
-                ),
-                Text('Or', style: AppTheme.blackTextStyle,),
-                Container(
-                  height: 1.5,
-                  width: MediaQuery.of(context).size.width / 2.8,
-                  color: AppTheme.blue.withOpacity(0.6),
-                ),
-              ],
-            ),
-          ),
-          SizedBox(height: 20,),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 12.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                CustomIconButton(
-                  buttonImage: Image.asset('assets/google.png'),
-                  buttonWidth: MediaQuery.of(context).size.width / 4.5,
-                  buttonRadius: 10,
-                  onPressed: (){
-
-                  },
-                  buttonHeight: 45,
-                ),
-                CustomIconButton(
-                  buttonImage: Image.asset('assets/apple.png'),
-                  buttonWidth: MediaQuery.of(context).size.width / 4.5,
-                  buttonRadius: 10,
-                  onPressed: (){
-
-                  },
-                  buttonHeight: 45,
-                ),
-                CustomIconButton(
-                  buttonImage: Image.asset('assets/facebook.png'),
-                  buttonWidth: MediaQuery.of(context).size.width / 4.5,
-                  buttonRadius: 10,
-                  onPressed: (){
-
-                  },
-                  buttonHeight: 45,
-                ),
-              ],
-            ),
-          ),
-                SizedBox(height: 20,),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 40.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Text('Not registered yet ?', style: TextStyle(
-                          fontWeight: FontWeight.w400, fontSize: 15, fontFamily: 'Poppins', color: AppTheme.blue
-                      )),
-                      InkWell(
-                        onTap: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=>CreateAccount()));
-                        },
-                        child: Text('Create Account', style: TextStyle(
-                            fontWeight: FontWeight.w600, fontSize: 16, fontFamily: 'Poppins', color: AppTheme.blue, decoration: TextDecoration.underline
-                        )),
+              ),
+              Align(
+                heightFactor: 2.3,
+                alignment: Alignment.bottomCenter,
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Container(
+                            height: 1.5,
+                            width: MediaQuery.of(context).size.width / 2.8,
+                            color: AppTheme.blue.withOpacity(0.1),
+                          ),
+                          Text('Or', style: AppTheme.blackTextStyle,),
+                          Container(
+                            height: 1.5,
+                            width: MediaQuery.of(context).size.width / 2.8,
+                            color: AppTheme.blue.withOpacity(0.1),
+                          ),
+                        ],
                       ),
-                    ],
-                  ),
-                )
-              ],
-            ),
+                    ),
+                    SizedBox(height: 20,),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          CustomIconButton(
+                            buttonImage: Image.asset('assets/google.png'),
+                            buttonWidth: MediaQuery.of(context).size.width / 3.5,
+                            buttonRadius: 10,
+                            onPressed: (){
+
+                            },
+                            buttonHeight: 55,
+                          ),
+                          CustomIconButton(
+                            buttonImage: Image.asset('assets/apple.png'),
+                            buttonWidth: MediaQuery.of(context).size.width / 3.5,
+                            buttonRadius: 10,
+                            onPressed: (){
+
+                            },
+                            buttonHeight: 55,
+                          ),
+                          CustomIconButton(
+                            buttonImage: Image.asset('assets/facebook.png'),
+                            buttonWidth: MediaQuery.of(context).size.width / 3.5,
+                            buttonRadius: 10,
+                            onPressed: (){
+
+                            },
+                            buttonHeight: 55,
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(height: 20,),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 84.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          Text("Don't have an account?", style: TextStyle(
+                              fontWeight: FontWeight.w400, fontSize: 15, fontFamily: 'Mulish', color: AppTheme.blue
+                          )),
+                          InkWell(
+                            onTap: (){
+                              Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=>CreateAccount()));
+                            },
+                            child: Text(' Sign Up', style: TextStyle(
+                              fontWeight: FontWeight.w600, fontSize: 16, fontFamily: 'Mulish', color: AppTheme.blue,
+                            )),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
           ),
         ),
     );

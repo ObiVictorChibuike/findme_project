@@ -69,7 +69,9 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
                               width: MediaQuery.of(context).size.height / 4.5,
                               decoration: BoxDecoration(
                                   color: AppTheme.white,
-                                  borderRadius: BorderRadius.circular(16),
+                                  borderRadius: BorderRadius.circular(
+                                    16,
+                                  ),
                                   image: DecorationImage(
                                       image: AssetImage('assets/vendor.png'),
                                       fit: BoxFit.cover)),
@@ -106,7 +108,10 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
                               width: MediaQuery.of(context).size.width / 2.65,
                               decoration: BoxDecoration(
                                   color: AppTheme.nearlyWhite,
-                                  borderRadius: BorderRadius.circular(10),
+                                  borderRadius: BorderRadius.only(
+                                    topLeft: Radius.circular(10),
+                                    bottomLeft: Radius.circular(10),
+                                  ),
                                   image: DecorationImage(
                                       image: AssetImage('assets/vendor.png'),
                                       fit: BoxFit.cover)),
@@ -167,96 +172,102 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
                 SizedBox(
                   height: 20,
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                Expanded(
+                  child: Column(
                     children: [
-                      Container(
-                        height: 1.5,
-                        width: MediaQuery.of(context).size.width / 2.5,
-                        color: AppTheme.blue.withOpacity(0.1),
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Container(
+                              height: 1.5,
+                              width: MediaQuery.of(context).size.width / 2.5,
+                              color: AppTheme.blue.withOpacity(0.1),
+                            ),
+                            Text(
+                              'Or',
+                              style: AppTheme.blackTextStyle,
+                            ),
+                            Container(
+                              height: 1.5,
+                              width: MediaQuery.of(context).size.width / 2.5,
+                              color: AppTheme.blue.withOpacity(0.1),
+                            ),
+                          ],
+                        ),
                       ),
-                      Text(
-                        'Or',
-                        style: AppTheme.blackTextStyle,
+                      SizedBox(
+                        height: 20,
                       ),
-                      Container(
-                        height: 1.5,
-                        width: MediaQuery.of(context).size.width / 2.5,
-                        color: AppTheme.blue.withOpacity(0.1),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                        child: Container(
+                          height: MediaQuery.of(context).size.height/14,
+                          width: MediaQuery.of(context).size.width,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              CustomIconButton(
+                                buttonImage: Image.asset('assets/google.png'),
+                                buttonWidth: MediaQuery.of(context).size.width / 3.5,
+                                buttonRadius: 10,
+                                onPressed: () {},
+                                buttonHeight: 55,
+                              ),
+                              CustomIconButton(
+                                buttonImage: Image.asset('assets/apple.png'),
+                                buttonWidth: MediaQuery.of(context).size.width / 3.5,
+                                buttonRadius: 10,
+                                onPressed: () {},
+                                buttonHeight: 55,
+                              ),
+                              CustomIconButton(
+                                buttonImage: Image.asset('assets/facebook.png'),
+                                buttonWidth: MediaQuery.of(context).size.width / 3.5,
+                                buttonRadius: 10,
+                                onPressed: () {},
+                                buttonHeight: 55,
+                              ),
+                            ],
+                          ),
+                        ),
                       ),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 95.0),
+                        child: Container(
+                          height: MediaQuery.of(context).size.height /28,
+                          width: MediaQuery.of(context).size.width,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Text('Sign up as a',
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.w400,
+                                      fontSize: 15,
+                                      fontFamily: 'Mulish',
+                                      color: AppTheme.blue)),
+                              InkWell(
+                                onTap: () {},
+                                child: Text('Findme Agent?',
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 16,
+                                      fontFamily: 'Mulish',
+                                      color: AppTheme.blue,
+                                    )),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      SizedBox(height: 5,)
                     ],
                   ),
                 ),
-                SizedBox(
-                  height: 20,
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 12.0),
-                  child: Container(
-                    height: MediaQuery.of(context).size.height/14,
-                    width: MediaQuery.of(context).size.width,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        CustomIconButton(
-                          buttonImage: Image.asset('assets/google.png'),
-                          buttonWidth: MediaQuery.of(context).size.width / 3.5,
-                          buttonRadius: 10,
-                          onPressed: () {},
-                          buttonHeight: 55,
-                        ),
-                        CustomIconButton(
-                          buttonImage: Image.asset('assets/apple.png'),
-                          buttonWidth: MediaQuery.of(context).size.width / 3.5,
-                          buttonRadius: 10,
-                          onPressed: () {},
-                          buttonHeight: 55,
-                        ),
-                        CustomIconButton(
-                          buttonImage: Image.asset('assets/facebook.png'),
-                          buttonWidth: MediaQuery.of(context).size.width / 3.5,
-                          buttonRadius: 10,
-                          onPressed: () {},
-                          buttonHeight: 55,
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  height: 20,
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 95.0),
-                  child: Container(
-                    height: MediaQuery.of(context).size.height /28,
-                    width: MediaQuery.of(context).size.width,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        Text('Sign up as a',
-                            style: TextStyle(
-                                fontWeight: FontWeight.w400,
-                                fontSize: 15,
-                                fontFamily: 'Mulish',
-                                color: AppTheme.blue)),
-                        InkWell(
-                          onTap: () {},
-                          child: Text('Findme Agent?',
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 16,
-                                  fontFamily: 'Mulish',
-                                  color: AppTheme.blue,
-                                  )),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                SizedBox(height: 5,)
               ],
             ),
           ),

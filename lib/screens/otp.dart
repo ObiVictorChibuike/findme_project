@@ -1,6 +1,6 @@
 import 'package:find_me_flutter_app/constants/color_palettes.dart';
 import 'package:find_me_flutter_app/custom_widget/custom_button.dart';
-import 'package:find_me_flutter_app/screens/dashboard.dart';
+import 'package:find_me_flutter_app/screens/select_plan.dart';
 import 'package:find_me_flutter_app/screens/login.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +22,7 @@ class _OptVerificationScreenState extends State<OptVerificationScreen> {
           selectedFillColor: AppTheme.white,
           inactiveColor: AppTheme.blue,
           shape: PinCodeFieldShape.box,
-          borderRadius: BorderRadius.circular(5),
+          borderRadius: BorderRadius.circular(10),
           fieldHeight: 60,
           fieldWidth: 60,
           activeFillColor: Colors.white,
@@ -53,20 +53,17 @@ class _OptVerificationScreenState extends State<OptVerificationScreen> {
             elevation: 0,
             backgroundColor: Colors.transparent,
             iconTheme: IconThemeData(color: AppTheme.blue),
-            title: Image.asset('assets/findme_logo.png'),
             centerTitle: true,
+            title: Text('OTP', style: TextStyle(fontSize: 16, fontFamily: 'Mulish', fontWeight: FontWeight.w700, color: AppTheme.blue),),
           ),
           resizeToAvoidBottomInset: false,
           backgroundColor: AppTheme.nearlyWhite,
           body: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 18.0),
+            padding: const EdgeInsets.symmetric(horizontal: 25.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 20.0),
-                  child: Text('OTP', style: TextStyle(fontWeight: FontWeight.w600, fontFamily: 'Poppins', fontSize: 25, color: AppTheme.blue)),
-                ),
+
                 SizedBox(height: 20,),
                 Align(
                   alignment: Alignment.topCenter,
@@ -117,39 +114,46 @@ class _OptVerificationScreenState extends State<OptVerificationScreen> {
                     ],
                   ),
                 ),
-                SizedBox(height: 30,),
+                SizedBox(height: 40,),
                 optWidget(),
-                SizedBox(height: 30,),
-                CustomButton(
-                    decorationColor: AppTheme.blue,
-                    buttonHeight: 48,
-                    borderColor: AppTheme.blue,
-                    buttonRadius: 10,
-                    buttonText: ('Submit & Continue'),
-                    onPressed: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=>DashBoard()));
-                    }
-                ),
-                SizedBox(height: 20,),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 60.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                Align(
+                  heightFactor: 1.3,
+                  alignment: Alignment.bottomCenter,
+                  child: Column(
                     children: [
-                      Text("Didn't receive an OTP?", style: TextStyle(
-                          fontWeight: FontWeight.w400, fontSize: 15, fontFamily: 'Poppins', color: AppTheme.blue
-                      )),
-                      InkWell(
-                        onTap: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=>LoginScreen()));
-                        },
-                        child: Text('Resend', style: TextStyle(
-                            fontWeight: FontWeight.w600, fontSize: 16, fontFamily: 'Poppins', color: AppTheme.blue, decoration: TextDecoration.underline
-                        )),
+                      CustomButton(
+                          decorationColor: AppTheme.blue,
+                          buttonHeight: 55,
+                          borderColor: AppTheme.blue,
+                          buttonRadius: 10,
+                          buttonText: ('Submit & Continue'),
+                          onPressed: (){
+                            Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=>DashBoard()));
+                          }
                       ),
+                      SizedBox(height: 30,),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 62.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            Text("Didn't receive an OTP?", style: TextStyle(
+                                fontWeight: FontWeight.w400, fontSize: 15, fontFamily: 'Mulish', color: AppTheme.blue
+                            )),
+                            InkWell(
+                              onTap: (){
+                                Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=>LoginScreen()));
+                              },
+                              child: Text(' Resend', style: TextStyle(
+                                  fontWeight: FontWeight.w600, fontSize: 16, fontFamily: 'Mulish', color: AppTheme.blue, decoration: TextDecoration.underline
+                              )),
+                            ),
+                          ],
+                        ),
+                      )
                     ],
                   ),
-                )
+                ),
               ],
             ),
           ),

@@ -3,7 +3,6 @@ import 'package:find_me_flutter_app/custom_widget/custom_button.dart';
 import 'package:find_me_flutter_app/custom_widget/custom_formfield.dart';
 import 'package:find_me_flutter_app/custom_widget/custom_icon_button.dart';
 import 'package:find_me_flutter_app/screens/login.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CreateAccount extends StatefulWidget {
@@ -87,9 +86,14 @@ class _CreateAccountState extends State<CreateAccount> {
                             Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=>LoginScreen()));
                           }
                       ),
-                      SizedBox(
-                        height: 80,
-                      ),
+                    ],
+                  ),
+                ),
+                Align(
+                  heightFactor: 1.6,
+                  alignment: Alignment.bottomCenter,
+                  child: Column(
+                    children: [
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Row(
@@ -111,54 +115,54 @@ class _CreateAccountState extends State<CreateAccount> {
                         ),
                       ),
                       SizedBox(height: 20,),
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 12.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      CustomIconButton(
-                        buttonImage: Image.asset('assets/google.png'),
-                        buttonWidth: MediaQuery.of(context).size.width / 3.5,
-                        buttonRadius: 10,
-                        onPressed: () {},
-                        buttonHeight: 55,
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 12.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            CustomIconButton(
+                              buttonImage: Image.asset('assets/google.png'),
+                              buttonWidth: MediaQuery.of(context).size.width / 3.5,
+                              buttonRadius: 10,
+                              onPressed: () {},
+                              buttonHeight: 55,
+                            ),
+                            CustomIconButton(
+                              buttonImage: Image.asset('assets/apple.png'),
+                              buttonWidth: MediaQuery.of(context).size.width / 3.5,
+                              buttonRadius: 10,
+                              onPressed: () {},
+                              buttonHeight: 55,
+                            ),
+                            CustomIconButton(
+                              buttonImage: Image.asset('assets/facebook.png'),
+                              buttonWidth: MediaQuery.of(context).size.width / 3.5,
+                              buttonRadius: 10,
+                              onPressed: () {},
+                              buttonHeight: 55,
+                            ),
+                          ],
+                        ),
                       ),
-                      CustomIconButton(
-                        buttonImage: Image.asset('assets/apple.png'),
-                        buttonWidth: MediaQuery.of(context).size.width / 3.5,
-                        buttonRadius: 10,
-                        onPressed: () {},
-                        buttonHeight: 55,
-                      ),
-                      CustomIconButton(
-                        buttonImage: Image.asset('assets/facebook.png'),
-                        buttonWidth: MediaQuery.of(context).size.width / 3.5,
-                        buttonRadius: 10,
-                        onPressed: () {},
-                        buttonHeight: 55,
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(height: 20,),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 70.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text('Already have an account ?', style: TextStyle(
-                          fontWeight: FontWeight.w400, fontSize: 15, fontFamily: 'Mulish', color: AppTheme.blue
-                      )),
-                      InkWell(
-                        onTap: (){
-                          Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=>LoginScreen()));
-                        },
-                        child: Text('Log In', style: TextStyle(
-                          fontWeight: FontWeight.w600, fontSize: 16, fontFamily: 'Mulish', color: AppTheme.blue,
-                        )),
+                      SizedBox(height: 20,),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 70.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text('Already have an account ?', style: TextStyle(
+                                fontWeight: FontWeight.w400, fontSize: 15, fontFamily: 'Mulish', color: AppTheme.blue
+                            )),
+                            InkWell(
+                              onTap: (){
+                                Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=>LoginScreen()));
+                              },
+                              child: Text('Log In', style: TextStyle(
+                                fontWeight: FontWeight.w600, fontSize: 16, fontFamily: 'Mulish', color: AppTheme.blue,
+                              )),
+                            ),
+                          ],
+                        ),
                       ),
                     ],
                   ),

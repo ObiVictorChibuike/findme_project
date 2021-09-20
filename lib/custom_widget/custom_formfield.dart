@@ -100,7 +100,7 @@ class _CustomPasswordFormFieldState extends State<CustomPasswordFormField> {
                 });
               },
               icon: Icon(
-                isObscured ? Icons.visibility_off : Icons.visibility, size: 20, color: AppTheme.blue,),
+                isObscured ? Icons.visibility_off : Icons.visibility, size: 20, color: Colors.grey,),
             ),
             isDense: true,
             contentPadding: EdgeInsets.all(15),
