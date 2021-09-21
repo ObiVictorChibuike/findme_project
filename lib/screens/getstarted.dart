@@ -24,6 +24,7 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
             centerTitle: true,
             backgroundColor: Colors.transparent,
             elevation: 0,
+            automaticallyImplyLeading: false,
           ),
           resizeToAvoidBottomInset: false,
           backgroundColor: AppTheme.nearlyWhite,

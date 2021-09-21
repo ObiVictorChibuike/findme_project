@@ -13,13 +13,17 @@ class CustomFormField extends StatelessWidget {
   final Widget? suffixIcon;
   final TextInputType? keyboardType;
   final double? cursorHeight;
+  final double? height;
+  final double? width;
   final TextEditingController? controller;
   final TextInputAction? textInputAction;
-  const CustomFormField({Key? key, this.labelText, this.textColor, this.focusedBorderColor, this.enabledBorderColor, @required this.validator, this.cursorColor, this.prefixIcon, this.suffixIcon, this.keyboardType, this.textInputAction, this.cursorHeight, this.controller}) : super(key: key);
+  const CustomFormField({Key? key, this.labelText, this.textColor, this.focusedBorderColor, this.enabledBorderColor, @required this.validator, this.cursorColor, this.prefixIcon, this.suffixIcon, this.keyboardType, this.textInputAction, this.cursorHeight, this.controller, this.height, this.width}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: height ?? 45,
+      width: width ?? double.infinity,
       decoration: BoxDecoration(
         color: AppTheme.white,
         borderRadius: BorderRadius.circular(10),

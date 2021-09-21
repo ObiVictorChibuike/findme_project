@@ -34,7 +34,7 @@ class CustomButton extends StatelessWidget {
                   buttonText?? '',
                   textAlign: TextAlign.left,
                   style: TextStyle(
-                    fontFamily: 'Poppins',
+                    fontFamily: 'Mulish',
                     fontWeight: FontWeight.w400,
                     fontSize: textFontSize ?? 15,
                     letterSpacing: 0.4,
